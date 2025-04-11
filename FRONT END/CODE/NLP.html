@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>4YP</title>
+  <link rel="stylesheet" href="styles.css">
+<!--  links
+https://www.google.com/search?q=sarcasm&sca_esv=243c4f3f542700e7&rlz=1C5CHFA_enUS1107US1107&udm=2&source=lnt&tbs=ic:trans&sa=X&ved=2ahUKEwj4tdT4o8uMAxWCFmIAHagxJqUQpwV6BAgBEA8&biw=1470&bih=737&dpr=2#vhid=npcPXwc6uQEu8M&vssid=mosaic
+https://www.google.com/search?q=sarcasm&sca_esv=243c4f3f542700e7&rlz=1C5CHFA_enUS1107US1107&udm=2&source=lnt&tbs=ic:trans&sa=X&ved=2ahUKEwj4tdT4o8uMAxWCFmIAHagxJqUQpwV6BAgBEA8&biw=1470&bih=737&dpr=2#vhid=w1j6vxAFSx5j_M&vssid=mosaic
+https://www.google.com/search?q=national+sarcasm+society&sca_esv=243c4f3f542700e7&rlz=1C5CHFA_enUS1107US1107&udm=2&source=lnt&tbs=ic:trans&sa=X&ved=2ahUKEwja9-TlpMuMAxWWN2IAHSRgCJoQpwV6BAgDEA8&biw=1470&bih=737&dpr=2#vhid=Zo6EYuPsicGJwM&vssid=mosaic
+https://www.google.com/search?q=sarcasm&sca_esv=243c4f3f542700e7&rlz=1C5CHFA_enUS1107US1107&udm=2&source=lnt&tbs=ic:trans&sa=X&ved=2ahUKEwj4tdT4o8uMAxWCFmIAHagxJqUQpwV6BAgBEA8&biw=1470&bih=737&dpr=2#vhid=0B_xKUf5pufBKM&vssid=mosaic
+https://www.google.com/search?q=sarcasm+pictures&sca_esv=243c4f3f542700e7&rlz=1C5CHFA_enUS1107US1107&udm=2&source=lnt&tbs=ic:trans&sa=X&ved=2ahUKEwjCi4zxrsuMAxUHElkFHYhhCNQQpwV6BAgCEA8&biw=1470&bih=739&dpr=2#vhid=KloILg0TLXADFM&vssid=mosaic
+generate a logo for the sarcasm detector that looks like machine with dials going from red to green . The background should be transparent
+
+-->
+  <style>
+    /* Basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      flex-direction: column;
+      margin: 0;
+      padding-top: 70px;
+      background-color: #ffffff;
+      color: #fdb515;
+
+    }
+
+    /* Navbar styling */
+    .navbar {
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #1e1e1e; /* Darker background for navbar */
+      color: #fdb515; /* Gold text */
+      padding: 10px 0;
+      z-index: 1000;
+      flex-direction: column;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      transition: top 0.3s ease-in;
+      position: fixed;
+    }
+
+    .navbar__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .navbar__menu {
+      display: flex;
+      list-style: none;
+    }
+
+    .navbar__item {
+      margin: 0 15px;
+    }
+
+    .navbar__links {
+      color: #f1c40f;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .navbar__btn a {
+      background-color: #f1c40f;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .navbar__btn a:hover {
+      background-color: #f39c12;
+    }
+
+    @media (max-width: 768px) {
+      .left {
+        flex: 0 0 100%;
+      }
+      .right {
+        flex: 0 0 100%;
+      }
+    }
+
+    /* Input box to create draggable elements */
+    #Input_sarcasm {
+      width: 1500px;
+      margin: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    #Input_sarcasm input {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: -450px;
+      margin-bottom: 450px;
+      width: 550px;
+      border-radius: 10px;
+      border: 1px solid #f1c40f;
+      justify-content: center;
+    }
+
+
+    #detect {
+      padding: 20px;
+      margin-top: -450px;
+      margin-bottom: 450px;
+      margin-left: 10px;
+      background-color: #fdb515;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #detect:hover {
+      background-color: #dca109;
+    }
+    .box {
+      width: 640px;
+      height: 200px;
+      border: 2px dashed #29b4df; /* Gold border */
+      display: inline-block;
+      padding: 10px;
+      text-align: center;
+      line-height: 130px;
+      font-size: 16px;
+      background-color: #d8f6ff; /* Dark grey background */
+      border-radius: 10px;
+      overflow-x: auto;
+      overflow-y: auto;
+    }
+    .box__text {
+      color: #b62929;
+      text-align: left;
+
+    }
+
+
+    /* Footer Section */
+    .footer {
+      background-color: #121212;
+      color: #f1c40f;
+      padding: 20px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .navbar__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    #resultbox {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1190px;
+      margin-right: 440px;
+      margin-left: 440px;
+      margin-top: -450px;
+      margin-bottom: -460px;
+
+    }
+    .navbar__item {
+      margin-left:-1270px;
+
+    }
+
+    .navbar__menu {
+      display: flex;
+      list-style: none;
+    }
+    .navbar__pic{
+      margin-top: 10px;
+      margin-left: -130px;
+    }
+
+    #NSS{
+      margin-top: -30px;
+      margin-left: 10px;
+
+    }
+    #sarcasms{
+      margin-top: -260px;
+      margin-left: 1260px;
+    }
+    #beware{
+      margin-top: 270px;
+      margin-left: 5px;
+    }
+    #runon{
+      margin-top: -170px;
+      margin-left: 1260px;
+    }
+
+  </style>
+</head>
+<body>
+<!-- Content here... -->
+<!-- Navbar Section -->
+<nav class="navbar">
+  <div class="navbar__container">
+    <div class="navbar__pic">
+      <img src="shield.png" alt="Shield" width="60" height="60">
+
+    </div>
+    <ul class="navbar__menu">
+      <li class="navbar__item"><a href="NLP.html" class="navbar__links" id="home-page">Home</a></li>
+    </ul>
+  </div>
+</nav>
+
+<img id="NSS" src="pictures/NSS-Design.webp" alt="nss" width="200" height="200">
+
+
+<div class="pics">
+<div id="sar">
+  <img id="sarcasms" src="pictures/s1.webp" alt="sda" width="200" height="200">
+</div>
+<div id="beware">
+  <img id="bewar" src="pictures/sarcasm.png" alt="sda" width="200" height="200">
+</div>
+
+  <div>
+    <img id="runon" src="pictures/sar.webp" alt="sda" width="200" height="200">
+  </div>
+</div>
+<div id="Input_sarcasm">
+  <label for="elementText">
+  </label><input type="text" id="elementText" placeholder="Enter enter a paragraph here">
+  <button id="detect" onclick="recognizeText()">
+    Detect
+  </button>
+</div>
+
+<div class="box" id="resultbox">
+  <div class="box__text">
+      <b>Input:</b>
+      <result>
+        . .. ...
+      </result>
+      <br>
+      <b>Result: Sarcasm Detected or Sarcasm not Detected </b>
+  </div>
+
+
+</div>
+
+</body>
+<script>
+
+  function recognizeText() {
+    const input = document.getElementById('elementText').value;
+    const result = document.getElementById('resultbox').getElementsByTagName('result')[0];
+    result.textContent = input;
+  }
+</script>
+</html>
